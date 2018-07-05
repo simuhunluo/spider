@@ -9,8 +9,9 @@ import scrapy
 
 
 class CompanysItem(scrapy.Item):
-    companyName = scrapy.Field()    # 企业名
-    url = scrapy.Field()            # 企业链接
-    jobNum = scrapy.Field()         # 在招职位数量
-    industry = scrapy.Field()       # 所属行业
-    place = scrapy.Field()          # 公司地点
+    companyName = scrapy.Field()  # 企业名
+    url = scrapy.Field()  # 企业链接
+    jobNum = scrapy.Field()  # 在招职位数量
+    industry = scrapy.Field()  # 所属行业
+    place = scrapy.Field()  # 公司地点
+    description = scrapy.Field()  # 公司描述

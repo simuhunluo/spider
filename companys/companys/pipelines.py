@@ -18,15 +18,17 @@ class CompanysPipeline(object):
         self.cursor = self.conn.cursor()
 
     def process_item(self, item, spider):
+        # print(item)
         companyName = item['companyName']  # 企业名
         url = item['url']  # 企业链接
         jobNum = item['jobNum']  # 在招职位数量
         industry = item['industry']  # 所属行业
         place = item['place']  # 公司地点
+        description = item['description']  # 企业描述
         insert_sql = """
-            insert IGNORE into company(`companyName`, `url`, `jobNum`, `industry`, `place`)
-            values(%s,%s,%s,%s,%s);
+            insert IGNORE into company(`companyName`, `url`, `jobNum`, `industry`, `place`,`description`)
+            values(%s,%s,%s,%s,%s,%s);
         """
-        self.cursor.execute(insert_sql, (companyName, url, jobNum, industry, place))
+        self.cursor.execute(insert_sql, (companyName, url, jobNum, industry, place, description))
         self.conn.commit()
         return item
